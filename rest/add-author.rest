@@ -1,5 +1,6 @@
 POST http://localhost:8080/authors HTTP/1.1
 content-type: application/json
+Authorization: Bearer r-Vc_-XdwLOk4NEcYvWKlLvLa89fujeq
 
 {
     "name": "J. R. R. Tolkien",

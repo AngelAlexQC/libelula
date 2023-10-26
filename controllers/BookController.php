@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\helpers\BehaviorsFromParamsHelper;
 use yii\rest\ActiveController;
 
 
@@ -13,7 +14,6 @@ class BookController extends ActiveController
     /**
      * @OA\Get(path="/books",
      *   summary="Obtener todos los libros",
-     *   security={{"api_key":{}}},
      *   tags={"libros"},
      *   @OA\Response(response=200, description="Obtener todos los libros")
      * )
@@ -28,7 +28,6 @@ class BookController extends ActiveController
      *   summary="Crear un libro",
      *   tags={"libros"},
      *   @OA\Response(response=200, description="Crear un libro"),
-     *   security={{"api_key":{}}},
      *   @OA\RequestBody(
      *    @OA\MediaType(
      *     mediaType="application/json",    
@@ -52,7 +51,6 @@ class BookController extends ActiveController
      *   summary="Obtener un libro por su ID",
      *   tags={"libros"},
      *   @OA\Response(response=200, description="Obtener un libro por su ID"),
-     *   security={{"api_key":{}}},
      *   @OA\Parameter(
      *     name="id",
      *     in="query",
@@ -81,7 +79,6 @@ class BookController extends ActiveController
      *         type="string"
      *     )
      *   ),
-     *   security={{"api_key":{}}},
      *   @OA\RequestBody(
      *    @OA\MediaType(
      *     mediaType="application/json",   
@@ -106,7 +103,6 @@ class BookController extends ActiveController
      *   summary="Eliminar un libro por su ID",
      *   tags={"libros"},
      *   @OA\Response(response=200, description="Eliminar un libro por su ID"),
-     *   security={{"api_key":{}}},
      *   @OA\Parameter(
      *     name="id",
      *     in="query",
@@ -122,12 +118,10 @@ class BookController extends ActiveController
         return parent::actions();
     }
 
-    public function checkAccess($action, $model = null, $params = [])
+    public function behaviors()
     {
-        if ($action === 'create' || $action === 'update' || $action === 'delete') {
-            if (\Yii::$app->user->isGuest) {
-                throw new \yii\web\ForbiddenHttpException(sprintf('Solo los usuarios registrados pueden ejecutar la acción "%s".', $action));
-            }
-        }
+        $behaviors = parent::behaviors();
+        $behaviors = BehaviorsFromParamsHelper::behaviors($behaviors);
+        return $behaviors;
     }
 }

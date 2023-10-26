@@ -26,7 +26,8 @@ $config = [
         'user' => [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
-            'enableSession' => true
+            'enableSession' => false,
+            'loginUrl' => null,
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -58,6 +59,8 @@ $config = [
                 'register' => 'site/register',
                 'about' => 'site/about',
                 'contact' => 'site/contact',
+
+                'api/login' => 'auth/login',
 
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'author'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'book'],
