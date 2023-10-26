@@ -4,13 +4,7 @@ namespace app\controllers;
 
 use yii\rest\ActiveController;
 
-/**
- * {
-    "name": "J. R. R. Tolkien",
-    "birth_date": "1892-01-03",
-    "country": "United Kingdom"
-}
- */
+
 class AuthorController extends ActiveController
 {
     public $modelClass = 'app\models\Author';

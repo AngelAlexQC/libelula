@@ -11,7 +11,16 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\RegisterForm;
 
-
+/**
+ * @OA\Info(title="LibelulaSoft Test", version="0.1")
+ * @OA\Server(url="http://localhost:8080")
+ * @OA\SecurityScheme(
+ *    type="apiKey",
+ *    in="header",
+ *    securityScheme="api_key",
+ *    name="api_key"
+ * )
+ */
 class SiteController extends Controller
 {
     /**
@@ -53,7 +62,6 @@ class SiteController extends Controller
                 'class' => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
-            //The document preview addesss:http://api.yourhost.com/site/doc
             'doc' => [
                 'class' => 'light\swagger\SwaggerAction',
                 'restUrl' => \yii\helpers\Url::to(['/site/api'], true),
@@ -66,8 +74,6 @@ class SiteController extends Controller
                     Yii::getAlias('@app/controllers'),
                     Yii::getAlias('@app/models'),
                 ],
-                //The security key
-                'api_key' => 'balbalbal',
             ],
         ];
     }

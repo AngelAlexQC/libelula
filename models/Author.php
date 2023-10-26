@@ -4,6 +4,7 @@ namespace app\models;
 
 use yii\mongodb\ActiveRecord;
 
+
 class Author extends ActiveRecord
 {
     public static function collectionName()

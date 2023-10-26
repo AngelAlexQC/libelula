@@ -5,10 +5,7 @@ namespace app\controllers;
 use yii\rest\ActiveController;
 
 
-/**
- * @OA\Info(title="LibelulaSoft Test", version="0.1")
- * @OA\PathItem(path="/books")
- */
+
 class BookController extends ActiveController
 {
     public $modelClass = 'app\models\Book';
