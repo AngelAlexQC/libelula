@@ -26,6 +26,7 @@ class AuthorController extends ActiveController
      *   summary="Crear un autor",
      *   tags={"autores"},
      *   @OA\Response(response=200, description="Crear un autor"),
+     *   security={{"api_key":{}}},
      *   @OA\RequestBody(
      *    @OA\MediaType(
      *     mediaType="application/json",    
@@ -76,6 +77,7 @@ class AuthorController extends ActiveController
      *         type="string"
      *    )
      *  ),
+     *  security={{"api_key":{}}},
      *   @OA\RequestBody(
      *    @OA\MediaType(
      *     mediaType="application/json",    
@@ -98,6 +100,7 @@ class AuthorController extends ActiveController
      *   summary="Eliminar un autor por su ID",
      *   tags={"autores"},
      *   @OA\Response(response=200, description="Eliminar un autor por su ID"),
+     *   security={{"api_key":{}}},
      *   @OA\Parameter(
      *     name="id",
      *     in="query",
