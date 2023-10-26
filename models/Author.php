@@ -19,7 +19,6 @@ class Author extends ActiveRecord
             'name',
             'birth_date',
             'country',
-            'books'
         ];
     }
 
@@ -27,16 +26,14 @@ class Author extends ActiveRecord
     {
         return [
             [['name', 'birth_date', 'country'], 'required'],
+            [['name'], 'unique', 'targetClass' => self::class, 'message' => 'Este autor ya existe.'],
             [['name', 'country'], 'string'],
             [['birth_date'], 'date', 'format' => 'php:Y-m-d'],
             [['books'], 'safe']
         ];
     }
 
-    public function getBooks()
-    {
-        return $this->hasMany(Book::class, ['_id' => 'books']);
-    }
+
 
     public function beforeSave($insert)
     {
@@ -51,5 +48,16 @@ class Author extends ActiveRecord
     {
         parent::afterFind();
         $this->birth_date = date('Y-m-d', $this->birth_date);
+    }
+
+    public function getBooks()
+    {
+        $books = Book::find()->where(['author' => (string)$this->_id])->all();
+        return $books;
+    }
+
+    public function extraFields()
+    {
+        return ['books'];
     }
 }
