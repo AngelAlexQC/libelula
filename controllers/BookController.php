@@ -125,6 +125,7 @@ class BookController extends ActiveController
     {
         $behaviors = parent::behaviors();
         $behaviors = BehaviorsFromParamsHelper::behaviors($behaviors);
+        $behaviors['authenticator']['except'] = ['index', 'view'];
         return $behaviors;
     }
 }
