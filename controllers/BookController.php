@@ -31,10 +31,10 @@ class BookController extends ActiveController
      *    @OA\MediaType(
      *     mediaType="application/json",    
      *       @OA\Schema(
-     *         @OA\Property(property="title", type="string", example="The Lord of the Rings"),
-     *         @OA\Property(property="author", type="string", example="6539d81db2638d07a20df3f7"),
+     *         @OA\Property(property="title", type="string", example="El señor de los anillos"),
+     *         @OA\Property(property="author", type="string", example="6539d796b2638d07a20df3f6"),
      *         @OA\Property(property="year", type="integer", example="1954"),
-     *         @OA\Property(property="description", type="string", example="The Lord of the Rings is an epic high-fantasy novel written by English author and scholar J. R. R. Tolkien."),
+     *         @OA\Property(property="description", type="string", example="The Lord of the Rings is an epic high fantasy novel written by English author and scholar J. R. R. Tolkien."),
      *       )
      *   ),
      *  )
@@ -82,12 +82,13 @@ class BookController extends ActiveController
      *   security={{"api_key":{}}},
      *   @OA\RequestBody(
      *    @OA\MediaType(
-     *     mediaType="application/json",    
+     *     mediaType="application/json",   
+     *  
      *       @OA\Schema(
      *         @OA\Property(property="title", type="string", example="El señor de los anillos"),
-     *         @OA\Property(property="author", type="string", example="6539d81db2638d07a20df3f7"),
+     *         @OA\Property(property="author", type="string", example="6539d796b2638d07a20df3f6"),
      *         @OA\Property(property="year", type="integer", example="1954"),
-     *         @OA\Property(property="description", type="string", example="El señor de los anillos es una novela de fantasía épica escrita por el filólogo y escritor británico J. R. R. Tolkien."),
+     *         @OA\Property(property="description", type="string", example="The Lord of the Rings is an epic high fantasy novel written by English author and scholar J. R. R. Tolkien."),
      *       )
      *   ),
      *  )
@@ -117,5 +118,14 @@ class BookController extends ActiveController
     public function actionDelete($id)
     {
         return parent::actions();
+    }
+
+    public function checkAccess($action, $model = null, $params = [])
+    {
+        if ($action === 'create' || $action === 'update' || $action === 'delete') {
+            if (\Yii::$app->user->isGuest) {
+                throw new \yii\web\ForbiddenHttpException(sprintf('Solo los usuarios registrados pueden ejecutar la acción "%s".', $action));
+            }
+        }
     }
 }
