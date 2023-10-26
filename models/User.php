@@ -7,8 +7,17 @@ use Yii;
 use yii\mongodb\ActiveRecord;
 use yii\web\IdentityInterface;
 
-use MongoDB\BSON\ObjectId;
-
+/**
+ * User model
+ *
+ * @property integer $_id
+ * @property string $name
+ * @property string $username
+ * @property string $email
+ * @property string $password
+ * @property string $authKey
+ * @property string $accessToken
+ */
 class User extends ActiveRecord implements IdentityInterface
 {
 

@@ -1,0 +1,8 @@
+POST http://localhost:8080/books HTTP/1.1
+content-type: application/json
+
+{
+    "title": "The Lord of the Rings",
+    "author": "6539d796b2638d07a20df3f6",
+    "year": 1954
+}
