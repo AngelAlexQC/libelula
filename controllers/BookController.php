@@ -27,6 +27,7 @@ class BookController extends ActiveController
      * @OA\Post(path="/books",
      *   summary="Crear un libro",
      *   tags={"libros"},
+     *   security={{"bearerAuth":{}}},
      *   @OA\Response(response=200, description="Crear un libro"),
      *   @OA\RequestBody(
      *    @OA\MediaType(
@@ -70,6 +71,7 @@ class BookController extends ActiveController
      * @OA\Patch(path="/book/update",
      *   summary="Actualizar un libro por su ID",
      *   tags={"libros"},
+     *   security={{"bearerAuth":{}}},
      *   @OA\Response(response=200, description="Actualizar un libro por su ID"),
      *   @OA\Parameter(
      *     name="id",
@@ -102,6 +104,7 @@ class BookController extends ActiveController
      * @OA\Delete(path="/book/delete",
      *   summary="Eliminar un libro por su ID",
      *   tags={"libros"},
+     *   security={{"bearerAuth":{}}},
      *   @OA\Response(response=200, description="Eliminar un libro por su ID"),
      *   @OA\Parameter(
      *     name="id",

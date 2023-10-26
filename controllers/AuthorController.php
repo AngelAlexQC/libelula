@@ -22,11 +22,13 @@ class AuthorController extends ActiveController
         return parent::actions();
     }
 
+    // use bearerAuth security
     /**
      * @OA\Post(path="/authors",
      *   summary="Crear un autor",
      *   tags={"autores"},
      *   @OA\Response(response=200, description="Crear un autor"),
+     *   security={{"bearerAuth":{}}},
      *   @OA\RequestBody(
      *    @OA\MediaType(
      *     mediaType="application/json",    
@@ -68,6 +70,7 @@ class AuthorController extends ActiveController
      * @OA\Put(path="/author/update",
      *   summary="Actualizar un autor por su ID",
      *   tags={"autores"},
+     *   security={{"bearerAuth":{}}},
      *   @OA\Response(response=200, description="Actualizar un autor por su ID"),
      *   @OA\Parameter(
      *     name="id",
@@ -99,6 +102,7 @@ class AuthorController extends ActiveController
      *   summary="Eliminar un autor por su ID",
      *   tags={"autores"},
      *   @OA\Response(response=200, description="Eliminar un autor por su ID"),
+     *   security={{"bearerAuth":{}}},
      *   @OA\Parameter(
      *     name="id",
      *     in="query",
