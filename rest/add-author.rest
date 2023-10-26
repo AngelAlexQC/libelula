@@ -1,0 +1,8 @@
+POST http://localhost:8080/authors HTTP/1.1
+content-type: application/json
+
+{
+    "name": "J. R. R. Tolkien",
+    "birth_date": "1892-01-03",
+    "country": "United Kingdom"
+}
