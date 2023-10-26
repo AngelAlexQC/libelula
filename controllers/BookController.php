@@ -50,6 +50,7 @@ class BookController extends ActiveController
      *   summary="Obtener un libro por su ID",
      *   tags={"libros"},
      *   @OA\Response(response=200, description="Obtener un libro por su ID"),
+     *   security={{"api_key":{}}},
      *   @OA\Parameter(
      *     name="id",
      *     in="query",
@@ -78,6 +79,7 @@ class BookController extends ActiveController
      *         type="string"
      *     )
      *   ),
+     *   security={{"api_key":{}}},
      *   @OA\RequestBody(
      *    @OA\MediaType(
      *     mediaType="application/json",    
@@ -101,6 +103,7 @@ class BookController extends ActiveController
      *   summary="Eliminar un libro por su ID",
      *   tags={"libros"},
      *   @OA\Response(response=200, description="Eliminar un libro por su ID"),
+     *   security={{"api_key":{}}},
      *   @OA\Parameter(
      *     name="id",
      *     in="query",
