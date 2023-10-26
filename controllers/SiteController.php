@@ -14,12 +14,6 @@ use app\models\RegisterForm;
 /**
  * @OA\Info(title="LibelulaSoft Test", version="0.1")
  * @OA\Server(url="http://localhost:8080")
- * @OA\SecurityScheme(
- *    type="apiKey",
- *    in="header",
- *    securityScheme="api_key",
- *    name="api_key"
- * )
  */
 class SiteController extends Controller
 {
@@ -109,6 +103,7 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+
 
     /**
      * Logout action.
