@@ -91,7 +91,7 @@ curl -i -H "Accept:application/json" -H "Content-Type:application/json" \
 ```bash
 curl -i -H "Accept:application/json" -H "Content-Type:application/json" \
     -XPOST "http://localhost:8080/books" \
-    -d '{"title": "The Lord of the Rings","author": "6539d796b2638d07a20df3f6","year": 1954, "description": "The Lord of the Rings is an epic high fantasy novel written by English author and scholar J. R. R. Tolkien. The story began as a sequel to Tolkien's 1937 fantasy novel The Hobbit, but eventually developed into a much larger work. Written in stages between 1937 and 1949, The Lord of the Rings is one of the best-selling novels ever written, with over 150 million copies sold."}'
+    -d '{"title": "The Lord of the Rings","author": "6539d796b2638d07a20df3f6","year": 1954, "description": "The Lord of the Rings is an epic high fantasy novel written by English author and scholar J. R. R. Tolkien."}'
 ```
 
 - Obtener todos los libros

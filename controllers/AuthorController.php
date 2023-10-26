@@ -115,4 +115,13 @@ class AuthorController extends ActiveController
     {
         return parent::actions();
     }
+
+    public function checkAccess($action, $model = null, $params = [])
+    {
+        if ($action === 'create' || $action === 'update' || $action === 'delete') {
+            if (\Yii::$app->user->isGuest) {
+                throw new \yii\web\ForbiddenHttpException(sprintf('Solo los usuarios registrados pueden ejecutar la acción "%s".', $action));
+            }
+        }
+    }
 }
