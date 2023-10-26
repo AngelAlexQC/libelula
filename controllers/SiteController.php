@@ -11,6 +11,7 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\RegisterForm;
 
+
 class SiteController extends Controller
 {
     /**
@@ -51,6 +52,22 @@ class SiteController extends Controller
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+            ],
+            //The document preview addesss:http://api.yourhost.com/site/doc
+            'doc' => [
+                'class' => 'light\swagger\SwaggerAction',
+                'restUrl' => \yii\helpers\Url::to(['/site/api'], true),
+            ],
+            //The resultUrl action.
+            'api' => [
+                'class' => 'light\swagger\SwaggerApiAction',
+                //The scan directories, you should use real path there.
+                'scanDir' => [
+                    Yii::getAlias('@app/controllers'),
+                    Yii::getAlias('@app/models'),
+                ],
+                //The security key
+                'api_key' => 'balbalbal',
             ],
         ];
     }
