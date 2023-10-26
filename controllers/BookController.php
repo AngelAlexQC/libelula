@@ -13,6 +13,7 @@ class BookController extends ActiveController
     /**
      * @OA\Get(path="/books",
      *   summary="Obtener todos los libros",
+     *   security={{"api_key":{}}},
      *   tags={"libros"},
      *   @OA\Response(response=200, description="Obtener todos los libros")
      * )
@@ -27,6 +28,7 @@ class BookController extends ActiveController
      *   summary="Crear un libro",
      *   tags={"libros"},
      *   @OA\Response(response=200, description="Crear un libro"),
+     *   security={{"api_key":{}}},
      *   @OA\RequestBody(
      *    @OA\MediaType(
      *     mediaType="application/json",    
