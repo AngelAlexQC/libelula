@@ -13,6 +13,7 @@ class AuthorController extends ActiveController
      * @OA\Get(path="/authors",
      *   summary="Obtener todos los autores",
      *   tags={"autores"},
+     *   security={{"api_key":{}}},
      *   @OA\Response(response=200, description="Obtener todos los autores")
      * )
      */
@@ -68,6 +69,7 @@ class AuthorController extends ActiveController
      * @OA\Put(path="/author/update",
      *   summary="Actualizar un autor por su ID",
      *   tags={"autores"},
+     *   security={{"api_key":{}}},
      *   @OA\Response(response=200, description="Actualizar un autor por su ID"),
      *   @OA\Parameter(
      *     name="id",
