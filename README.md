@@ -44,4 +44,37 @@ php yii serve
 
 ## Probar la API
 
-Se puede acceder desde el navegador a la dirección `http://localhost:8080/site/doc` para ver la documentación de la API y probarla.
+Acceder desde el navegador a la dirección `http://localhost:8080/site/doc` para ver la documentación de la API y probar los diferentes endpoints.
+
+### Autenticación
+
+Para poder probar los endpoints de la API es necesario autenticarse. Para ello, en la documentación de la API, en el apartado de `Auth`, se puede ver el endpoint `/auth/register`. Aquí se puede registrar un usuario y obtener el token de autenticación.
+
+```json
+{
+  "username": "admin",
+  "password": "admin",
+  "email": "admin@emil.com"
+}
+```
+
+Una vez registrado, se puede obtener el token de autenticación en el endpoint `/auth/login`.
+
+```json
+{
+  "username": "admin",
+  "password": "admin"
+}
+```
+
+Con el token de autenticación se puede probar el resto de endpoints de la API.
+
+```json
+{
+  "access_token": "Xs60py8w5UEIjDG4vHYN8DL21tQzVKyp"
+}
+```
+
+1. Hacer click en el botón `Authorize` en la parte superior derecha de la documentación de la API.
+
+2. Probar los endpoints de la API que requieran autenticación.
