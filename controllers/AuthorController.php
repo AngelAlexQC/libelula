@@ -11,9 +11,20 @@ class AuthorController extends ActiveController
     public $modelClass = 'app\models\Author';
 
     /**
-     * @OA\Get(path="/authors",
+     * @OA\Get(
+     *   path="/authors",
      *   summary="Obtener todos los autores",
      *   tags={"autores"},
+     *   @OA\Parameter(
+     *     name="expand",
+     *     in="query",
+     *     description="Campos adicionales a mostrar",
+     *     required=false,
+     *     @OA\Schema(
+     *       type="array",
+     *       @OA\Items(type="string", enum={"books"})
+     *     ),
+     *   ),
      *   @OA\Response(response=200, description="Obtener todos los autores")
      * )
      */
@@ -22,7 +33,6 @@ class AuthorController extends ActiveController
         return parent::actions();
     }
 
-    // use bearerAuth security
     /**
      * @OA\Post(path="/authors",
      *   summary="Crear un autor",
@@ -51,6 +61,7 @@ class AuthorController extends ActiveController
      *   summary="Obtener un autor por su ID",
      *   tags={"autores"},
      *   @OA\Response(response=200, description="Obtener un autor por su ID"),
+     *   security={{"bearerAuth":{}}},
      *   @OA\Parameter(
      *     name="id",
      *     in="query",
@@ -58,7 +69,17 @@ class AuthorController extends ActiveController
      *     @OA\Schema(
      *         type="string"
      *    )
-     *  )
+     *  ),
+     *   @OA\Parameter(
+     *     name="expand",
+     *     in="query",
+     *     description="Campos adicionales a mostrar",
+     *     required=false,
+     *     @OA\Schema(
+     *       type="array",
+     *       @OA\Items(type="string", enum={"books"})
+     *     ),
+     *   ),
      * )
      */
     public function actionView($id)
