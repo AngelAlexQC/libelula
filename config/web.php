@@ -61,6 +61,7 @@ $config = [
                 'contact' => 'site/contact',
 
                 'api/login' => 'auth/login',
+                'api/register' => 'auth/register',
 
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'author'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'book'],
