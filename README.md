@@ -18,10 +18,13 @@
 
 ## Instalación
 
-- Clonar el repositorio
+- Descargar el repositorio
+- Descomprimir el archivo
+- Acceder a la carpeta del proyecto
 
 ```bash
-git clone
+unzip libelula-soft-test.zip
+cd libelula
 ```
 
 - Instalar dependencias
@@ -34,7 +37,7 @@ composer install
 
 ## Ejecución
 
-- Ejecutar el servidor de desarrollo de PHP
+- Ejecutar el servidor de desarrollo
 
 ```bash
 php yii serve
